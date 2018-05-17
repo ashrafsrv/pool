@@ -1,0 +1,16 @@
+Style of code:
+    1. Inconsistent naming "readJson", "JSON" in director.h
+    2. Consistent indentation
+
+Documentation:
+    1. Code was very well documented. Made it easier to grasp the design implementation
+
+Design of code:
+    1. Redundancy: No need for Factory. Builder essentially does the same thing. Builder just additionally returns empty Pool game
+    2. Builder pattern aided in building a different representation of the complex Pool game
+
+Coding well done? What would you have done differently?
+    1. No. Should have used Qt Library components
+    2. Gotten rid of Coordinate class and used QPoint
+    3. Delegated the reading of Json to Builder which is essentially doing nothing
+        would make it easier for Director to handle more complex functionality like composite balls and decorator

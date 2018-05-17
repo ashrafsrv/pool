@@ -57,23 +57,29 @@ void Director::readJson(){
     QJsonDocument* document = new QJsonDocument(QJsonDocument::fromJson(file.readAll()));
     QJsonObject object = document->object();
 
-    // Extract table object from the overall file object
-    if (object.contains("table") && object["table"].isObject()){
-        tablejson = object["table"].toObject();
-    }
-    else{
-        qWarning("No table given in JSON file");
-        exit(EXIT_FAILURE);
+    // If stage2 is false, read normally
+    if (object.contains("stage2") && object["stage2"].isBool()){
+        if(object["stage2"].toBool() == false){
+            // Extract table object from the overall file object
+            if (object.contains("table") && object["table"].isObject()){
+                tablejson = object["table"].toObject();
+            }
+            else{
+                qWarning("No table given in JSON file");
+                exit(EXIT_FAILURE);
+            }
+
+            // Extract balls array from the overall file object
+            if (object.contains("balls") && object["balls"].isArray()){
+                ballsjson = object["balls"].toArray();
+            }
+            else{
+                qWarning("No balls given in JSON file");
+                exit(EXIT_FAILURE);
+            }
+        }
     }
 
-    // Extract balls array from the overall file object
-    if (object.contains("balls") && object["balls"].isArray()){
-        ballsjson = object["balls"].toArray();
-    }
-    else{
-        qWarning("No balls given in JSON file");
-        exit(EXIT_FAILURE);
-    }
 
 }
 

@@ -30,8 +30,7 @@ SOURCES += \
     table.cpp \
     pool.cpp \
     poolbuilder.cpp \
-    director.cpp \
-    pocket.cpp
+    director.cpp
 
 HEADERS += \
         dialog.h \

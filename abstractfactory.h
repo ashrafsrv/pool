@@ -4,6 +4,7 @@
 #include "coordinate.h"
 #include "ball.h"
 #include "table.h"
+#include "pocket.h"
 
 /**
  * @brief The Factory is responsible for creating each object.
@@ -20,7 +21,7 @@ class AbstractFactory
 public:
     virtual Ball* createBall(Coordinate coordinate, std::string color, float mass, float radius, float xVelocity, float yVelocity) = 0;
     virtual Table* createTable(float length, float height, float thickness, float space, float friction, std::string color) = 0;
-    virtual Pocket* createPocket()
+//    virtual Pocket* createPocket(QPoint point, float radius);
 };
 
 #endif // FACTORY_H
