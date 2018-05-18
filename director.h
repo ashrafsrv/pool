@@ -9,7 +9,7 @@
 #include <QJsonArray>
 
 #define tablespace 50
-#define tablethickness 2
+#define tablethickness 0
 
 /**
  * @brief The Director will put together all needed objects into one big pool game. Will also parse JSON input.
@@ -39,6 +39,12 @@ public:
      * @brief readJson will parse the JSON given in "config.JSON" in to a JSONArray of balls and JSONObject of the table
      */
     void readJson();
+
+    /**
+     * @brief readNormalJson will read the config file normally as in Assignment 1
+     * @param object
+     */
+    void readNormalJson(QJsonObject object);
 
     /**
      * @brief tablewidthJSON will grab the width of the table from the given JSON file, or use a default
